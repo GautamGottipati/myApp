@@ -1,0 +1,54 @@
+<div class="container">
+  <div class="row">
+    <h1 class="text-center">Welcome {{name}}!</h1>
+    <span style="float: right;border:1px solid black;text-decoration:none;font-size:large;font-weight:bold;border-radius:5px;padding:5px;"><a href="/" style="text-transform: none;">Logout</a></span>
+
+  </div>
+</div>
+<br>
+<div class="container">
+<div class="card">
+    <div class="card-body">
+      <div class="row">
+        <div class="col-sm-4" style="padding-top:60px;padding-left:42px;border: 2px solid black;height:207px;border-radius:5px;background-color:black;color:white;"> 
+
+            <h4 class="card-title" style="font-weight: bold;">User name : {{name}}</h4>
+            <p class="card-text">Email id : {{email}}</p>
+        </div>
+        <div class="col-sm-8">
+          <form action="/api/post" method="POST">
+              <div class="form-group">
+                <label for="comment">Post:</label>
+                <textarea class="form-control" name="post" rows="5" id="comment"></textarea>
+              </div>
+              <input type="submit" value="Post" class="btn btn-primary btn-block">
+          </form>
+        </div>
+
+      </div>
+      
+    </div>
+</div>
+</div>
+<hr>
+<div class="container">
+  <button type="button" style="float: left;margin-right:5px;"  class="btn btn-primary" onclick="showposts()">Your Posts</button>
+  <button type="button" id="viewAll" class="btn btn-success" onclick="viewAll()">View all posts</button>
+</div>
+<br>
+<div id="userposts" class="container" style="display: none;">
+  {{#each posts}}
+      <li class="list-group-item">
+          {{this}}
+          {{!-- <span style="float: right;">
+              <a href="edit/{{id}}" class="card-link">Edit</a>  
+              <a href="#" id="{{id}}" class="card-link deleteButton">Delete</a>
+          </span> --}}
+            
+      </li>
+      
+  {{/each}}
+</div>
+      
+      
+   

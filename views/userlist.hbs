@@ -1,0 +1,10 @@
+<h4>Members</h4>
+<ul class="list-group">
+    {{#each myActiveMembers}}
+        <li class="list-group-item" style="background-color: black; color:blanchedalmond;">{{this.name}}:{{this.email}}</li>
+        {{#each this.posts}}
+            <li class="list-group-item">{{this}}</li>
+        {{/each}}
+        <a href="/api/user/{{this.name}}" class="">View</a>
+    {{/each}}
+</ul>

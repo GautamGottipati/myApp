@@ -1,0 +1,35 @@
+<h1>{{title}}</h1>
+<div class="container">
+    <span style="float: right;font-weight :bold;font-size:15px;text-transform:uppercase;">
+        Hello <a href="/api/user/{{username}}">{{username}}</a>
+    </span>
+</div>
+<br>
+<div class="container">
+    <div class="row">
+        <form action="/api/post" method="POST">
+              <div class="form-group">
+                <label for="comment">Post:</label>
+                <textarea class="form-control" name="post" rows="2" id="comment"></textarea>
+              </div>
+              <input type="submit" value="Post" class="btn btn-primary btn-block">
+          </form>
+    </div>
+</div>
+<hr>
+<div class="container" >
+    <div class="row">
+        <ul class="list-group">
+        {{#each myPosts}}
+        <div class="container" style="margin-bottom: 5px;">
+            <li class="list-group-item" style="background-color: black; color:blanchedalmond;">{{this.name}}</li>
+            <li class="list-group-item">{{this.posts}}</li>
+            
+        </div>
+        {{/each}}
+        </ul>
+    </div>
+    
+
+
+</div>

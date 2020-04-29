@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    {{!-- <script src="jquery-3.4.1.min.js"></script> --}}
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    {{!-- bootstrap --}}
+
+    <title>Main app</title>
+</head>
+<body>
+    <div class="container mt-4">
+        {{{body}}}
+    </div>
+     <script >
+         $(document).ready(function(){
+            $('.deleteButton').on('click',function(e){
+                $target = $(e.target);
+                console.log($target.attr('id'));
+                const id = $target.attr('id');
+                $.ajax({
+                    type:'DELETE',
+                    url : '/api/'+id,
+                    success:function(response){
+                        alert('Deleting User');
+                        window.location.href='/';
+                    },
+                    error:function(err){
+                        console.log(err);
+                    }
+                });
+            });
+            
+                       
+         });
+         var showposts = function(){
+                {{!-- alert("came here"); --}}
+                var postDiv = document.getElementById('userposts');
+                if (postDiv.style.display === "none") {
+                    postDiv.style.display = "block";
+                } else {
+                    postDiv.style.display = "none";
+                }
+            }
+        var viewAll = function(){
+            window.location.href='/api/posts';
+        }
+     </script> 
+</body>
+</html>
